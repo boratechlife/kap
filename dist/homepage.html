@@ -16,54 +16,211 @@
             background-size: 100%, 100%, 100%;
             background-repeat: no-repeat, no-repeat, no-repeat;
         }
+        
+        .footer-bg {
+            background-image: url('img/Polygon 13.svg'), url('img/Polygon\ 15.svg'), url('img/Polygon\ 14.svg');
+            background-position: -28rem -25rem, -25rem -20rem, -28rem -26rem;
+            background-size: 190%, 180%, 190%;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden multiple">
-    <header>
-        <div class="container mx-auto">
+    <header class="w-full">
+        <div class="container mx-auto flex justify-between items-center">
             <img src="img/logo/logo.png" class="w-40 object-fit" />
+
+            <nav class="flex justify-between space-x-3 w-1/2 items-center">
+                <ul class="list-reset flex space-x-2 items-center">
+                    <li class="font-medium uppercase text-white"><a href="">Home</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Producte</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Preise</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Blog</a></li>
+                </ul>
+                <div class="buttons  w-2/5">
+                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-2xl">Login</button>
+                    <button class="px-4 inline text-center text-white py-2 bg-primary shadow-xl rounded-2xl">Regisitrieren</button>
+                </div>
+            </nav>
         </div>
+
     </header>
 
     <section class="mt-6">
         <div class="container mx-auto">
-            <form action="" class="w-1/2 py-3 space-y-3">
-                <div class=" border-l-8 border-primary w-1/4 px-2">
-                    <h4 class="font-extrabold text-3xl text-gray-800">Login</h4>
-                    <p>Melde in an</p>
+            <div class="flex w-full items-center">
+                <div class="w-5/12 ">
+                    <div class="content w-3/4 space-y-6">
+                        <h4 class="text-2xl font-bold text-gray-800 lg:text-3xl">
+                            Kassensystem speziell für Restaurants
+                        </h4>
+                        <p class="text-gray-500">Grandpay bietet Ihnen die Möglichkeit, die Bestellung von Speisen und Getränken auf eine intelligente Weise zu vereinfachen.</p>
+
+                        <button class="px-4 inline text-center w-2/5 text-white py-2 bg-primary shadow-xl rounded-2xl">Regisitrieren</button>
+                    </div>
                 </div>
-
-                <div class="input my-3 w-full">
-
-                    <input class="form-input rounded-2xl border shadow-sm w-7/12" placeholder="Email" />
+                <div class="w-1/2 flex items-end">
+                    <img src="img/pos.png" alt="pos" />
                 </div>
+            </div>
 
-                <div class="input my-3 w-full">
-
-                    <input class="form-input rounded-2xl border shadow-sm w-7/12" placeholder="Passwort" />
-                </div>
-
-                <div class="check w-full">
-                    <label class="text-primary w-full">
-                      <input type="checkbox" name="" class="form-check h-4 w-4 mr-4 align-middle" id="">
-                      <span class="align-middle">
-                        Angemeldet Bleiben
-                      </span>
-                  </label>
-                </div>
-
-                <div class="button">
-                    <button class="px-4 text-center text-white py-2 bg-primary shadow-xl rounded-3xl">Anmelden</button>
-                </div>
-
-                <div class="password flex flex-col text-primary text-sm">
-                    <a href="" class="font-bold">Password Vegessen?</a>
-                    <a href="" class="font-bold">Keine Anieitung Zur Bestatigung erthalten?</a>
-                </div>
-            </form>
         </div>
     </section>
+
+    <section class="my-26 py-20">
+        <div class="container mx-auto">
+            <div class="flex w-full">
+                <div class="w-full lg:w-1/2">
+                    <div class="relative w-full py-4">
+                        <img class="  h-72 w-3/4" src="img/IMG_1893.png" />
+                        <div class="absolute w-3/4 h-full top-0 flex items-center justify-center">
+                            <div class="h-24 w-24 bg-white rounded-full flex justify-center items-center text-primary">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 px-8">
+                    <h4 class="text-2xl lg:text-3xl font-bold text-gray-800">Organisation in der Gastronomie</h4>
+                    <p class="text-gray-600 text-lg my-3">Grandpay umfasst viele weitere Optionen, die für die Organisation von Bestellungen in der Gastronomie von Vorteil sind. So können Sie sich Bestellnummern auf einem Monitor anzeigen lassen oder die Bestellung des Gastes in der Küche
+                        ausdrucken. Es lassen sich mehrere Tische und Mitarbeiter verwalten. Legen Sie eine Kundendatenbank an und profitieren Sie von der einfachen Bedienung. Spezielle Vorkenntnisse sind bei der Nutzung von Grandpay nicht erforderlich.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="my-28 py-20">
+        <div class="container mx-auto">
+            <div class="w-full flex justify-center lg:space-x-6">
+
+                <div class="card border shadow-sm rounded-3xl p-5 w-1/4">
+                    <div class="img">
+                        <img src="img/web.png" alt="web" class="h-40 w-40" />
+                    </div>
+                    <h4 class="text-2xl font-bold">Grandpay Webshop</h4>
+                    <p class="text-base">Sie wollten Ihren Kunden schon immer eine Onlinelieferung anbieten, doch Sie scheuten den Aufwand und die Investition?</p>
+                    <div class="link w-full lg:w-1/2 flex justify-between text-primary">
+                        <span>mehr</span>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="card border border-primary  shadow-xl rounded-3xl p-5 w-1/4">
+                    <div class="img">
+                        <img src="img/pos.png" alt="web" class="h-40 w-40" />
+                    </div>
+                    <h4 class="text-2xl font-bold">Grandpay Webshop</h4>
+                    <p class="text-base">Sie wollten Ihren Kunden schon immer eine Onlinelieferung anbieten, doch Sie scheuten den Aufwand und die Investition?</p>
+                    <div class="link w-full lg:w-1/2 flex justify-between text-primary">
+                        <span>mehr</span>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="card border shadow-sm rounded-3xl p-5 w-1/4 flex flex-col items-start">
+                    <div class="img">
+                        <img src="img/kiosk.png" class="  h-40 w-40" alt="web" />
+                    </div>
+                    <h4 class="text-xl font-bold">Grandpay Webshop</h4>
+                    <p class="text-sm">Sie wollten Ihren Kunden schon immer eine Onlinelieferung anbieten, doch Sie scheuten den Aufwand und die Investition?</p>
+                    <div class="link w-full lg:w-1/2 flex justify-between text-primary">
+                        <span>mehr</span>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="my-28 py-20">
+        <div class="container mx-auto">
+            <div class="w-full flex">
+                <div class="w-3/4"></div>
+                <div class="w-1/4">
+                    <div class="relative  h-80">
+                        <div class=" absolute  -top-10 right-0">
+                            <div class="h-20 w-20 bg-primary rounded-full"></div>
+                        </div>
+                        <div class="absolute w-64 h-1 border-dashed transform rotate-3 border-primary"></div>
+                        <div class=" absolute  top-3">
+
+                            <div class="h-20 w-20 bg-primary rounded-full"></div>
+                        </div>
+                        <div class=" absolute bottom-20 right-0">
+                            <div class="h-20 w-20 bg-primary rounded-full"></div>
+                        </div>
+                        <div class=" absolute  bottom-20 left-10">
+                            <div class="h-20 w-20 bg-primary rounded-full"></div>
+                        </div>
+                        <div class=" absolute bottom-0">
+                            <div class="h-20 w-20 bg-primary rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="footer-bg px-4 pt-4 w-full mt-28">
+        <footer class="bg-top w-full  ">
+            <div class="bg-middle bg-middle w-full h-full">
+                <div class="bg-bottom h-full w-full">
+                    <div class="container mx-auto">
+                        <div class="w-full flex text-white justify-between">
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Products</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="">List one</a></li>
+                                    <li><a href="">List two</a></li>
+                                    <li><a href="">List three</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Products</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="">List one</a></li>
+                                    <li><a href="">List two</a></li>
+                                    <li><a href="">List three</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Products</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="">List one</a></li>
+                                    <li><a href="">List two</a></li>
+                                    <li><a href="">List three</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Products</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="">List one</a></li>
+                                    <li><a href="">List two</a></li>
+                                    <li><a href="">List three</a></li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 </body>
 

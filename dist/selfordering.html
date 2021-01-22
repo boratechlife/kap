@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+
+    <title>Document</title>
+
+    <style>
+        .multiple {
+            background-image: url('img/Polygon 3.svg'), url('img/Polygon\ 10.svg'), url('img/Polygon\ 9.svg');
+            background-position: 16rem -60rem, 15rem -59rem, 14rem -58rem;
+            background-size: 102%, 102%, 102%;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden multiple">
+    <header class="w-full">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="img/logo/logo.png" class="w-40 object-fit" />
+
+            <nav class="flex justify-between space-x-3 w-1/2 items-center">
+                <ul class="list-reset flex space-x-2 items-center">
+                    <li class="font-medium uppercase text-white"><a href="">Home</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Producte</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Preise</a></li>
+                    <li class="font-medium uppercase text-white"><a href="">Blog</a></li>
+                </ul>
+                <div class="buttons  w-2/5">
+                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-2xl">Login</button>
+                    <button class="px-4 inline text-center text-white py-2 bg-primary shadow-xl rounded-2xl">Regisitrieren</button>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="py-10">
+        <div class="container mx-auto">
+            <div class="w-full flex items-center">
+                <div class="w-1/2 flex flex-col ">
+                    <div class="upper w-3/4 space-y-4">
+                        <h4 class="text-3xl lg:text-4xl font-bold">Grandpay<span>KIOSK</span> </h4>
+                        <h6 class="font-semibold text-xl">Selfordering für Ihre Kunden</h6>
+                        <p>Optional zu unserem Kassensystem können Sie auch die Kiosk-Funktion dazubuchen. Ihre Kunden können einfach selber die Bestellung ausführen und abschlissen. Ihr Personal muss lediglich die Bestellung zubereiten und bringen.</p>
+                    </div>
+                    <div class="lower">
+                        <h5 class="text-xl font-bold">Melden Sie sich an, um benachrichtigt zu werden, wenn es fertig ist.</h5>
+                        <form action="w-full py-3">
+                            <div class="flex my-3 space-x-2">
+                                <input type="text" class="form-input w-4/5 px-3 py-2 border rounded-2xl">
+                                <button class="appearance-none px-3  1/5 bg-primary py-2 rounded-3xl text-white text-center shadow">Anmelden</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <img src="img/kiosk@2x.png" />
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
