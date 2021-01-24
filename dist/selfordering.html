@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
     <title>Document</title>
@@ -16,45 +17,104 @@
             background-size: 102%, 102%, 102%;
             background-repeat: no-repeat, no-repeat, no-repeat;
         }
+        
+        .footer {
+            background-image: url('img/Polygon 13.svg'), url('img/Polygon\ 15.svg'), url('img/Polygon\ 14.svg');
+            background-position: -28rem 20rem, -25rem 26rem, -28rem 21rem;
+            background-size: 200%, 190%, 200%;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            z-index: -10;
+            height: 1300px;
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden multiple">
-    <header class="w-full">
-        <div class="container mx-auto flex justify-between items-center">
+    <header class="w-full lg:py-6">
+        <div class="container px-4 mx-auto flex justify-between items-center" x-data="{menuOpen:false}">
             <img src="img/logo/logo.png" class="w-40 object-fit" />
+            <!-- Mobile menu -->
+            <div class="humberguer lg:hidden" @click="menuOpen=true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+            <div class="absolute  top-0 h-screen w-full z-50 bg-primary menu right-0 p-4" x-show="menuOpen">
+                <nav class="flex flex-col w-full items-end">
+                    <div class="close text-white my-3 w-full flex justify-start" @click="menuOpen=false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div>
+                    <ul class="list-reset flex flex-col  items-center space-y-4 text-sm">
+                        <li class="font-medium uppercase text-white cursor-pointer"><a href="">Home</a></li>
+                        <li class="font-medium uppercase text-white cursor-pointer" x-data="{open:false}">
+                            <a class=" relative" @click="open=true">
+                                <span>Producte</span>
+                                <svg class="w-5 h-5 inline align-center mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                <div class="absolute top-20  w-48 bg-gray-100 rounded shadow-md" x-show="open" @click.away="open=!open">
+                                    <ul class="list-reset space-y-2 p-2 text-primary text-sm">
+                                        <li><a href="">Product 1</a></li>
+                                        <li><a href="">Product 1</a></li>
+                                        <li><a href="">Product 1</a></li>
+                                        <li><a href="">Product 1</a></li>
+                                        <li><a href="">Product 1</a></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="font-medium uppercase text-white cursor-pointer"><a href="">Preise</a></li>
+                        <li class="font-medium uppercase text-white cursor-pointer"><a href="">Blog</a></li>
+                    </ul>
+                    <div class="buttons flex flex-col w-auto space-y-3">
+                        <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-3xl text-sm w-40">Login</button>
+                        <button class="px-4 inline text-center text-white py-2 bg-transparent border border-white shadow-xl rounded-3xl text-sm w-40">Regisitrieren</button>
+                    </div>
+                </nav>
 
-            <nav class="flex justify-between space-x-3 w-1/2 items-center">
-                <ul class="list-reset flex space-x-2 items-center">
-                    <li class="font-medium uppercase text-white"><a href="">Home</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Producte</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Preise</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Blog</a></li>
+            </div>
+            <!-- Desktop menu -->
+            <nav class="hidden lg:flex justify-between space-x-3 w-1/2 items-center">
+                <ul class="list-reset flex space-x-3 items-center text-sm">
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Home</a></li>
+                    <li class="font-medium uppercase text-white cursor-pointer" x-data="{open:false}">
+                        <a class=" relative" @click="open=true">
+                            <span>Producte</span>
+                            <svg class="w-5 h-5 inline align-center mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <div class="absolute top-20  w-48 bg-gray-100 rounded shadow-md" x-show="open" @click.away="open=!open">
+                                <ul class="list-reset space-y-2 p-2 text-primary text-sm">
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                </ul>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Preise</a></li>
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Blog</a></li>
                 </ul>
-                <div class="buttons  w-2/5">
-                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-2xl">Login</button>
-                    <button class="px-4 inline text-center text-white py-2 bg-primary shadow-xl rounded-2xl">Regisitrieren</button>
+                <div class="buttons  w-auto">
+                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-3xl text-sm w-40">Login</button>
+                    <button class="px-4 inline text-center text-white py-2 bg-transparent border border-white shadow-xl rounded-3xl text-sm w-40">Regisitrieren</button>
                 </div>
             </nav>
         </div>
 
     </header>
 
+
     <main class="py-10">
-        <div class="container mx-auto">
-            <div class="w-full flex items-center">
-                <div class="w-1/2 flex flex-col ">
+        <div class="container mx-auto px-4">
+            <div class="w-full flex flex-wrap lg:flex-nowrap items-center">
+                <div class="w-full lg:w-1/2 flex flex-col ">
                     <div class="upper w-3/4 space-y-4">
-                        <h4 class="text-3xl lg:text-4xl font-bold">Grandpay<span>KIOSK</span> </h4>
-                        <h6 class="font-semibold text-xl">Selfordering für Ihre Kunden</h6>
-                        <p>Optional zu unserem Kassensystem können Sie auch die Kiosk-Funktion dazubuchen. Ihre Kunden können einfach selber die Bestellung ausführen und abschlissen. Ihr Personal muss lediglich die Bestellung zubereiten und bringen.</p>
+                        <h4 class="text-3xl lg:text-5xl font-bold">Grandpay<span class="font-extrabold ml-3">KIOSK</span> </h4>
+                        <h6 class="font-semibold text-xl my-4">Selfordering für Ihre Kunden</h6>
+                        <p class="text-gray-500 text-sm">Optional zu unserem Kassensystem können Sie auch die Kiosk-Funktion dazubuchen. Ihre Kunden können einfach selber die Bestellung ausführen und abschlissen. Ihr Personal muss lediglich die Bestellung zubereiten und bringen.</p>
                     </div>
-                    <div class="lower">
-                        <h5 class="text-xl font-bold">Melden Sie sich an, um benachrichtigt zu werden, wenn es fertig ist.</h5>
+                    <div class="spacer h-10"></div>
+                    <div class="lower mt-5">
+                        <h5 class="text-xl font-bold mb-4">Melden Sie sich an, um benachrichtigt <br> zu werden, wenn es fertig ist.</h5>
                         <form action="w-full py-3">
                             <div class="flex my-3 space-x-2">
                                 <input type="text" class="form-input w-4/5 px-3 py-2 border rounded-2xl">
-                                <button class="appearance-none px-3  1/5 bg-primary py-2 rounded-3xl text-white text-center shadow">Anmelden</button>
+                                <button class="appearance-none px-4   bg-primary py-2 rounded-3xl text-white text-center shadow">Anmelden</button>
                             </div>
                         </form>
                     </div>

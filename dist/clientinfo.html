@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 
 
     <title>Document</title>
@@ -16,24 +18,53 @@
             background-size: 102%, 102%, 102%;
             background-repeat: no-repeat, no-repeat, no-repeat;
         }
+        
+        .footer {
+            background-image: url('img/Polygon 13.svg'), url('img/Polygon\ 15.svg'), url('img/Polygon\ 14.svg');
+            background-position: -28rem 20rem, -25rem 26rem, -28rem 21rem;
+            background-size: 200%, 190%, 200%;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            z-index: -10;
+            height: 1300px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
     </style>
+
+
 </head>
 
 <body class="overflow-x-hidden multiple">
-    <header class="w-full">
+    <header class="w-full lg:py-6">
         <div class="container mx-auto flex justify-between items-center">
             <img src="img/logo/logo.png" class="w-40 object-fit" />
 
             <nav class="flex justify-between space-x-3 w-1/2 items-center">
-                <ul class="list-reset flex space-x-2 items-center">
-                    <li class="font-medium uppercase text-white"><a href="">Home</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Producte</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Preise</a></li>
-                    <li class="font-medium uppercase text-white"><a href="">Blog</a></li>
+                <ul class="list-reset flex space-x-3 items-center text-sm">
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Home</a></li>
+                    <li class="font-medium uppercase text-white cursor-pointer" x-data="{open:false}">
+                        <a class=" relative" @click="open=true">
+                            <span>Producte</span>
+                            <svg class="w-5 h-5 inline align-center mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <div class="absolute top-20  w-48 bg-gray-100 rounded shadow-md" x-show="open" @click.away="open=!open">
+                                <ul class="list-reset space-y-2 p-2 text-primary text-sm">
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                    <li><a href="">Product 1</a></li>
+                                </ul>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Preise</a></li>
+                    <li class="font-medium uppercase text-white cursor-pointer"><a href="">Blog</a></li>
                 </ul>
-                <div class="buttons  w-2/5">
-                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-2xl">Login</button>
-                    <button class="px-4 inline text-center text-white py-2 bg-primary shadow-xl rounded-2xl">Regisitrieren</button>
+                <div class="buttons  w-auto">
+                    <button class="px-4 inline text-center  py-2 bg-white text-primary shadow-xl rounded-3xl text-sm w-40">Login</button>
+                    <button class="px-4 inline text-center text-white py-2 bg-transparent border border-white shadow-xl rounded-3xl text-sm w-40">Regisitrieren</button>
                 </div>
             </nav>
         </div>
@@ -42,11 +73,11 @@
 
     <main class="py-10">
         <section>
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4 lg:px-20">
                 <div class="w-full">
                     <div class="w-full lg:w-1/2 pt-24 space-y-3">
-                        <h4 class="font-bold text-2xl lg:text-4xl"> BALD GESCHAFT</h4>
 
+                        <h4 class="text-3xl lg:text-5xl text-gray-800 mb-4 font-bold">BALD<span class="font-extrabold ml-3 text-black">GESCHAFT</span> </h4>
                         <p>Wir benötigen noch einige Informationen, damit wir Ihren Shop schnellstmöglich vorbereiten können.</p>
                     </div>
                 </div>
@@ -55,15 +86,15 @@
 
 
         <section class="my-20">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4 lg:px-20">
                 <form class="space-y-4 w-full">
 
-                    <div class="item flex w-full">
+                    <div class="item flex  w-full">
                         <div class="w-full lg:w-1/2">
                             <label for="" class="font-semibold"> Firmenname</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="Vollständiger Name" />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="Vollständiger Name" />
                         </div>
                     </div>
 
@@ -72,7 +103,7 @@
                             <label for="" class="font-semibold">  Ansprechspartner</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="Vollständiger Name" />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="Vollständiger Name" />
                         </div>
                     </div>
 
@@ -81,7 +112,7 @@
                             <label for="" class="font-semibold">  Ansprechspartner</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder=" Name, Vorname" />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder=" Name, Vorname" />
                         </div>
                     </div>
 
@@ -90,7 +121,7 @@
                             <label for="" class="font-semibold">   Adresse </label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  Adresse " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  Adresse " />
                         </div>
                     </div>
 
@@ -99,7 +130,7 @@
                             <label for="" class="font-semibold">   PLZ </label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  PLZ " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  PLZ " />
                         </div>
                     </div>
 
@@ -108,7 +139,7 @@
                             <label for="" class="font-semibold">   Ort </label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  Ort " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  Ort " />
                         </div>
                     </div>
 
@@ -118,7 +149,7 @@
                             <label for="" class="font-semibold">   Telefonnummer (Geschäft) </label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  Geschäft " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  Geschäft " />
                         </div>
                     </div>
 
@@ -127,7 +158,7 @@
                             <label for="" class="font-semibold">    Telefonnummer Ansprechspartner </label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  Mobile " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  Mobile " />
                         </div>
                     </div>
 
@@ -137,7 +168,7 @@
                             <label for="" class="font-semibold"> E-Mail Adresse</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="  E-Mail " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="  E-Mail " />
                         </div>
                     </div>
 
@@ -165,7 +196,7 @@
                             <label for="" class="font-semibold"> Falls Nein wie soll Ihre Domain heissen?</label>
                         </div>
                         <div class="w-full lg:w-1/2 relative flex">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12 text-sm" placeholder="  www.grandmedia.ch " />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6 text-sm" placeholder="  www.grandmedia.ch " />
                             <div class="absolute left-0 ml-48  mt-2 top-0 text-xs text-green-500">diese Domain ist verfügbar</div>
                             <div class="absolute right-0 mr-56 mt-2 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
                         </div>
@@ -176,7 +207,7 @@
                             <label for="" class="font-semibold">  Logo als .png/pdf/eps</label>
                         </div>
                         <div class="w-full lg:w-1/2 flex items-center">
-                            <input class="form-input border shadow-sm w-1/3 mr-2" placeholder="  E-Mail " />
+                            <input class="form-input border bg-white shadow-sm w-1/3 mr-2" placeholder="  E-Mail " />
                             <p class="text-sm">.png/pdf/eps max 4mb</p>
                         </div>
                     </div>
@@ -186,7 +217,7 @@
                             <label for="" class="font-semibold">   Menükarte hochladen</label>
                         </div>
                         <div class="w-full lg:w-1/2 flex items-center">
-                            <input class="form-input border shadow-sm w-1/3 mr-2" placeholder=" Datei auswählen " />
+                            <input class="form-input bg-white border shadow-sm w-1/3 mr-2" placeholder=" Datei auswählen " />
                             <p class="text-sm">.word/pdf/jpg max 4mb</p>
                         </div>
                     </div>
@@ -197,8 +228,8 @@
                             <label for="" class="font-semibold">  Bestellgebiet und mindestbetrag </label>
                         </div>
                         <div class="w-full lg:w-1/2 flex items-center lg:space-x-3">
-                            <input class="form-input rounded-3xl border shadow-sm w-1/5" placeholder=" PLZ " />
-                            <input class="form-input rounded-3xl border shadow-sm w-2/5" placeholder="  mindestbestellung " />
+                            <input class="form-input rounded-3xl border bg-white shadow-sm w-1/5" placeholder=" PLZ " />
+                            <input class="form-input rounded-3xl border shadow-sm bg-white w-2/5" placeholder="  mindestbestellung " />
                             <div class="text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
                         </div>
                     </div>
@@ -245,7 +276,7 @@
                                 <label class="flex items-center space-x-2 relative ">
                               
                                 <span>Wenn ja</span>
-                                <input class="form-input rounded-3xl border shadow-sm w-1/4" placeholder=" 13  " />
+                                <input class="form-input rounded-3xl border shadow-sm w-1/4 bg-white" placeholder=" 13  " />
                          <span class="absolute left-28 top-2">%</span>
                             </label>
                             </div>
@@ -262,34 +293,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -302,14 +313,34 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -321,33 +352,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -359,33 +371,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -397,14 +390,52 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -428,34 +459,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -468,14 +479,34 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -487,33 +518,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -525,33 +537,14 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <button class="bg-primary p-1 rounded text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                    </button>
-                                </div>
-                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
-                                    <label for="" class="mr-3 font-bold">Montag</label>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
-                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        </span>
-                                    </div>
-                                    <div class="text-lg w-1/5">-</div>
-                                    <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -563,14 +556,52 @@
                                 <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
                                     <label for="" class="mr-3 font-bold">Montag</label>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
                                     </div>
-                                    <div class="text-lg w-1/5">-</div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
                                     <div class="flex items-center space-x-2 relative ">
-                                        <input class="form-input  border shadow-sm  text-base w-2/3 pl-8 " placeholder=" offnet  " />
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <button class="bg-primary p-1 rounded text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+                                <div class="item flex w-full items-center space-x-1 lg:w-3/4 text-gray-500 text-sm">
+                                    <label for="" class="mr-3 font-bold">Montag</label>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
+                                        <span class="absolute left-0 top-2 h-3/4 flex items-center">
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        </span>
+                                    </div>
+                                    <div class="text-lg w-1/5 text-center">-</div>
+                                    <div class="flex items-center space-x-2 relative ">
+                                        <input class="form-input  border shadow-sm  text-base w-full pl-8 bg-white px-6 " placeholder=" offnet  " />
                                         <span class="absolute left-0 top-2 h-3/4 flex items-center">
                                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                         </span>
@@ -590,7 +621,7 @@
                             <label for="" class="font-semibold"> IBAN Nummer für auszahlungen</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="IBAN NUMMER" />
+                            <input class="form-input rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="IBAN NUMMER" />
                         </div>
                     </div>
 
@@ -599,7 +630,9 @@
                             <label for="" class="font-semibold">  Gewünschte Abrechnung</label>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <input class="form-input rounded-3xl border shadow-sm w-7/12" placeholder="wochentlich" />
+                            <select class="form-select rounded-3xl border shadow-sm w-7/12 bg-white px-6" placeholder="wochentlich">
+                            <option value="">wochentlich</option>
+                            </select>
                         </div>
                     </div>
 
@@ -620,6 +653,90 @@
         </section>
 
     </main>
+
+    <div class=" px-4 pt-4 w-full z-10 relative lg:mt-80">
+        <footer class="bg-top w-full  " style="height: 300px;">
+            <div class="bg-middle bg-middle w-full h-full">
+                <div class="bg-bottom h-full w-full flex  items-end lg:w-3/4 mx-auto">
+                    <div class="container mx-auto">
+                        <div class="w-full flex text-white justify-between">
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Produkte</h4>
+                                <ul class="list-unstyled">
+                                    <li class="hover:text-gray-700"><a href="">Kassensystem</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Webshop</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Preise</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Über uns</h4>
+                                <ul class="list-unstyled">
+                                    <li class="hover:text-gray-700"><a href="">AGB`s</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Datenschutz</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Impressum</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Support</a></li>
+
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-1/4">
+                                <h4 class="text-lg font-bold ">Mehr</h4>
+                                <ul class="list-unstyled space-y-1">
+                                    <li class="hover:text-gray-700"><a href="">grandpay empfehlen</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Blog</a></li>
+                                    <li class="hover:text-gray-700"><a href="">Partner</a></li>
+
+
+                                </ul>
+                            </div>
+
+                            <div class="w-full lg:w-5/12">
+                                <h4 class="text-lg font-bold ">Aboniere unseren Newsletter</h4>
+                                <div class="input my-5 w-full rounded-3xl flex  bg-white border border-gray-200">
+
+                                    <input class="form-input  shadow-sm w-3/5 bg-white text-gray-500" placeholder="E-mail" />
+                                    <button class="px-4 text-center text-white py-2 bg-primary shadow-xl rounded-3xl">abonieren</button>
+                                </div>
+
+                                <div class="social my-3">
+                                    <h5 class="font-bold mb-3">social media</h5>
+                                    <div class="flex space-x-3 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                        <svg class="fill-current" width="24" height="24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px" viewBox="0 0 256 256" version="1.1" preserveAspectRatio="xMidYMid">
+                                            <g>
+                                                <path d="M127.999746,23.06353 C162.177385,23.06353 166.225393,23.1936027 179.722476,23.8094161 C192.20235,24.3789926 198.979853,26.4642218 203.490736,28.2166477 C209.464938,30.5386501 213.729395,33.3128586 218.208268,37.7917319 C222.687141,42.2706052 225.46135,46.5350617 227.782844,52.5092638 C229.535778,57.0201472 231.621007,63.7976504 232.190584,76.277016 C232.806397,89.7746075 232.93647,93.8226147 232.93647,128.000254 C232.93647,162.177893 232.806397,166.225901 232.190584,179.722984 C231.621007,192.202858 229.535778,198.980361 227.782844,203.491244 C225.46135,209.465446 222.687141,213.729903 218.208268,218.208776 C213.729395,222.687649 209.464938,225.461858 203.490736,227.783352 C198.979853,229.536286 192.20235,231.621516 179.722476,232.191092 C166.227425,232.806905 162.179418,232.936978 127.999746,232.936978 C93.8200742,232.936978 89.772067,232.806905 76.277016,232.191092 C63.7971424,231.621516 57.0196391,229.536286 52.5092638,227.783352 C46.5345536,225.461858 42.2700971,222.687649 37.7912238,218.208776 C33.3123505,213.729903 30.538142,209.465446 28.2166477,203.491244 C26.4637138,198.980361 24.3784845,192.202858 23.808908,179.723492 C23.1930946,166.225901 23.0630219,162.177893 23.0630219,128.000254 C23.0630219,93.8226147 23.1930946,89.7746075 23.808908,76.2775241 C24.3784845,63.7976504 26.4637138,57.0201472 28.2166477,52.5092638 C30.538142,46.5350617 33.3123505,42.2706052 37.7912238,37.7917319 C42.2700971,33.3128586 46.5345536,30.5386501 52.5092638,28.2166477 C57.0196391,26.4642218 63.7971424,24.3789926 76.2765079,23.8094161 C89.7740994,23.1936027 93.8221066,23.06353 127.999746,23.06353 M127.999746,0 C93.2367791,0 88.8783247,0.147348072 75.2257637,0.770274749 C61.601148,1.39218523 52.2968794,3.55566141 44.1546281,6.72008828 C35.7374966,9.99121548 28.5992446,14.3679613 21.4833489,21.483857 C14.3674532,28.5997527 9.99070739,35.7380046 6.71958019,44.1551362 C3.55515331,52.2973875 1.39167714,61.6016561 0.769766653,75.2262718 C0.146839975,88.8783247 0,93.2372872 0,128.000254 C0,162.763221 0.146839975,167.122183 0.769766653,180.774236 C1.39167714,194.398852 3.55515331,203.703121 6.71958019,211.845372 C9.99070739,220.261995 14.3674532,227.400755 21.4833489,234.516651 C28.5992446,241.632547 35.7374966,246.009293 44.1546281,249.28042 C52.2968794,252.444847 61.601148,254.608323 75.2257637,255.230233 C88.8783247,255.85316 93.2367791,256 127.999746,256 C162.762713,256 167.121675,255.85316 180.773728,255.230233 C194.398344,254.608323 203.702613,252.444847 211.844864,249.28042 C220.261995,246.009293 227.400247,241.632547 234.516143,234.516651 C241.632039,227.400755 246.008785,220.262503 249.279912,211.845372 C252.444339,203.703121 254.607815,194.398852 255.229725,180.774236 C255.852652,167.122183 256,162.763221 256,128.000254 C256,93.2372872 255.852652,88.8783247 255.229725,75.2262718 C254.607815,61.6016561 252.444339,52.2973875 249.279912,44.1551362 C246.008785,35.7380046 241.632039,28.5997527 234.516143,21.483857 C227.400247,14.3679613 220.261995,9.99121548 211.844864,6.72008828 C203.702613,3.55566141 194.398344,1.39218523 180.773728,0.770274749 C167.121675,0.147348072 162.762713,0 127.999746,0 Z M127.999746,62.2703115 C91.698262,62.2703115 62.2698034,91.69877 62.2698034,128.000254 C62.2698034,164.301738 91.698262,193.730197 127.999746,193.730197 C164.30123,193.730197 193.729689,164.301738 193.729689,128.000254 C193.729689,91.69877 164.30123,62.2703115 127.999746,62.2703115 Z M127.999746,170.667175 C104.435741,170.667175 85.3328252,151.564259 85.3328252,128.000254 C85.3328252,104.436249 104.435741,85.3333333 127.999746,85.3333333 C151.563751,85.3333333 170.666667,104.436249 170.666667,128.000254 C170.666667,151.564259 151.563751,170.667175 127.999746,170.667175 Z M211.686338,59.6734287 C211.686338,68.1566129 204.809755,75.0337031 196.326571,75.0337031 C187.843387,75.0337031 180.966297,68.1566129 180.966297,59.6734287 C180.966297,51.1902445 187.843387,44.3136624 196.326571,44.3136624 C204.809755,44.3136624 211.686338,51.1902445 211.686338,59.6734287 Z" />
+                                            </g>
+                                        </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <hr>
+                        <div class="w-full text-white my-4">
+                            <div class="flex justify-between">
+                                <div>Copyright © 2021</div>
+                                <div>grandpay.ch All right reserved</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+        <div class="absolute bottom-0 w-full footer  z-0"></div>
+    </div>
+
 </body>
 
 </html>

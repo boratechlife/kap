@@ -16,6 +16,15 @@
             background-size: 100%, 100%, 100%;
             background-repeat: no-repeat, no-repeat, no-repeat;
         }
+        
+        .footer {
+            background-image: url('img/Polygon 13.svg'), url('img/Polygon\ 15.svg'), url('img/Polygon\ 14.svg');
+            background-position: -28rem 20rem, -25rem 26rem, -28rem 21rem;
+            background-size: 200%, 190%, 200%;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            z-index: -10;
+            height: 1300px;
+        }
     </style>
 </head>
 
@@ -27,24 +36,24 @@
     </header>
 
     <section class="mt-6">
-        <div class="container mx-auto">
-            <form action="" class="w-1/2 py-3 space-y-3">
-                <div class=" border-l-8 border-primary w-1/4 px-2">
-                    <h4 class="font-extrabold text-3xl text-gray-800">Login</h4>
-                    <p>Melde in an</p>
+        <div class="container mx-auto px-4">
+            <form action="" class="w-full lg:w-1/2 py-3 ">
+                <div class=" border-l-8 mb-6 lg:mb-10 border-primary w-1/4 px-2">
+                    <h4 class="font-extrabold text-3xl lg:text-4xl text-gray-800">Login</h4>
+                    <p class="text-base lg:text-lg">Melde in an</p>
                 </div>
 
-                <div class="input my-3 w-full">
+                <div class="input my-6 w-full">
 
-                    <input class="form-input rounded-2xl border shadow-sm w-7/12" placeholder="Email" />
+                    <input class="form-input rounded-3xl border border-gray-200 shadow-sm w-7/12 px-4" placeholder="Email" />
                 </div>
 
-                <div class="input my-3 w-full">
+                <div class="input my-6 w-full">
 
-                    <input class="form-input rounded-2xl border shadow-sm w-7/12" placeholder="Passwort" />
+                    <input class="form-input rounded-3xl border border-gray-200 shadow-sm w-7/12 px-4" placeholder="Passwort" />
                 </div>
 
-                <div class="check w-full">
+                <div class="check w-full px-4 my-6">
                     <label class="text-primary w-full">
                       <input type="checkbox" name="" class="form-check h-4 w-4 mr-4 align-middle" id="">
                       <span class="align-middle">
@@ -53,12 +62,12 @@
                   </label>
                 </div>
 
-                <div class="button">
+                <div class="button mb-6 mt-10">
                     <button class="px-4 text-center text-white py-2 bg-primary shadow-xl rounded-3xl">Anmelden</button>
                 </div>
 
                 <div class="password flex flex-col text-primary text-sm">
-                    <a href="" class="font-bold">Password Vegessen?</a>
+                    <a href="" class="font-bold mb-2">Password Vegessen?</a>
                     <a href="" class="font-bold">Keine Anieitung Zur Bestatigung erthalten?</a>
                 </div>
             </form>
