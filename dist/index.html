@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Splide js for carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+        <!-- Owl Stylesheets -->
+        <link rel="stylesheet" href="assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/owl.theme.default.min.css">
+
+        <!-- scripts -->
+        <script src="assets/jquery.min.js"></script>
+        <script src="assets/owl.carousel.min.js"></script>
+        <title>Document</title>
+
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="fixed top-0 z-50 bg-transparent text-white w-full">
+            <div class="container px-4 lg:px-20" x-data="{open:false}">
+                <div class="w-full flex justify-between items-center">
+                    <div class="logo">
+                        <img src="img/logo.png" class="h-20 w-20 object-contain" alt="" srcset="">
+                    </div>
+                    <div class=" text-white hidden lg:block">
+                        <ul class="list-reset flex items-center space-x-3 text-base font-bold">
+                            <li class="px-3 py-2 text-secondary hover:text-primary"><a href="#home" id>Home</a></li>
+                            <li class="px-3 py-2  relative  hover:text-secondary" x-data="{menuOpen:false}"><a href="#about" @click="menuOpen=!menuOpen">About us
+                                <i class="fas fa-caret-down inline"></i>
+                                <div class="absolute w-40 text-black text-sm top-8 rounded   bg-white shadow-md" x-show="menuOpen" @click.away="menuOpen=false">
+                                   <ul class="list-reset flex flex-col space-y-3">
+                                       <li class="px-3 hover:text-primary"><a href="">About KAP</a></li>
+                            <li class="px-3 hover:text-primary"><a href="">Management</a></li>
+                            <li class="px-3 hover:text-primary"><a href="">Committees</a></li>
+                        </ul>
+                    </div>
+                    </a>
+                    </li>
+                    <li class="px-3 py-2 hover:text-secondary" x-data="{menuOpen:false}">
+                        <a href="#services" @click="menuOpen=!menuOpen">Media & Events
+                            <i class="fas fa-caret-down inline"></i>
+                            <div class="absolute w-40 text-black text-sm top-12 rounded py-2  bg-white shadow-md" x-show="menuOpen" @click.away="menuOpen=false">
+                                <ul class="list-reset flex flex-col ">
+                                    <li class="px-3 hover:text-primary relative cursor-pointer" x-data="{subMenu:false}"><a  @mouseover="subMenu=true">Conferences 
+
+                                        <i class="fas fa-angle-right inline float-right text-lg"></i>
+
+                                    </a>
+                        <div class="absolute right-0 top-0  rounded w-40 -mr-40 bg-white" x-show="subMenu" @click.away="subMenu=false">
+                            <ul class="list-reset flex flex-col text-black p-2 space-y-2">
+                                <li class="px-3 hover:text-primary relative ">
+                                    <a href="">2021</a>
+                                </li>
+                                <li class="px-3 hover:text-primary relative">
+                                    <a href="">2020</a>
+                                </li>
+                                <li class="px-3 hover:text-primary relative">
+                                    <a href="">2019</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    </ul>
+                </div>
+                </a>
+
+                </li>
+
+                <li class="px-3 py-2  relative  hover:text-secondary" x-data="{menuOpen:false}"><a href="#about" @click="menuOpen=!menuOpen">Membership
+                    <i class="fas fa-caret-down inline"></i>
+                    <div class="absolute w-40 text-black text-sm top-8 rounded   bg-white shadow-md" x-show="menuOpen" @click.away="menuOpen=false">
+                       <ul class="list-reset flex flex-col space-y-3">
+                           <li class="px-3 hover:text-primary whitespace-nowrap py-2"><a href=""> Membership Details</a></li>
+                <li class="px-3 hover:text-primary pb-2"><a href="">Portal</a></li>
+                </ul>
+            </div>
+            </a>
+            </li>
+
+            <li class="px-3 py-2 hover:text-secondary"><a href="#contact">Gallery</a></li>
+            <li class="px-3 py-2 hover:text-secondary"><a href="#contact">Contact us</a></li>
+
+
+            <li class="px-3 py-2  relative  hover:text-secondary" x-data="{menuOpen:false}"><a href="#about" @click="menuOpen=!menuOpen">Resources
+                <i class="fas fa-caret-down inline"></i>
+                <div class="absolute w-40 text-black text-sm top-8 rounded   bg-white shadow-md" x-show="menuOpen" @click.away="menuOpen=false">
+                   <ul class="list-reset flex flex-col space-y-3">
+                       <li class="px-3 hover:text-primary whitespace-nowrap py-2"><a href=""> Covid 19</a></li>
+            <li class="px-3 hover:text-primary pb-2"><a href="">Downloads</a></li>
+            </ul>
+            </div>
+            </a>
+            </li>
+
+            </ul>
+            </div>
+
+            <div class="lg:hidden humberger" @click="open=true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" class="fixed lg:hidden top-0 w-full h-screen p-4 z-50 bg-white px-4">
+                <div class="w-full flex justify-between items-center">
+                    <div class="logo">
+                        <img src="img/logo.png" class="h-16 w-20 " alt="" srcset="">
+                    </div>
+
+                    <div class="close mx-3" @click="open=false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                </div>
+
+                <div class=" text-white  lg:hidden">
+                    <ul class="list-reset flex flex-col items-center space-y-3">
+                        <li class="px-3 py-2 text-primary hover:text-primary"><a href="#home" @click="open=false">Home</a></li>
+                        <li class="px-3 py-2 hover:text-primary"><a href="#about" @click="open=false">About us</a></li>
+                        <li class="px-3 py-2 hover:text-primary"><a href="#services" @click="open=false">Services</a></li>
+                        <li class="px-3 py-2 hover:text-primary"><a href="#team" @click="open=false">Our Team</a></li>
+                        <li class="px-3 py-2 hover:text-primary"><a href="#contact" @click="open=false">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+        </header>
+
+
+        <div id="fullscreen-slider" class="splide h-screen">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide relative">
+                        <div class="absolute h-screen bg-black bg-opacity-20 top-0 w-full">
+                            <div class="flex flex-col items-start justify-center h-full">
+                                <div class="content flex flex-col justify-center items-start lg:pl-20">
+                                    <h2 class="font-bold text-4xl text-white mb-4">KENYA ASSOSCIATION OF <span class="text-secondary font-extrabold">PHYSICIANS</span></h2>
+                                    <div class="w-2/5 text-gray-200">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper hendrerit ac dui accumsan facilisis fermentum etiam enim nec.
+                                    </div>
+
+
+                                    <a href="" class="w-2/5 hover:bg-opacity-80 border border-primary py-3 mt-4 px-4 bg-primary rounded shadow-md text-white text-center">Become our Member</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <img src="img/IMG_9766.jpg">
+
+                    </li>
+                    <li class="splide__slide">
+                        <img src="img/IMG_9766.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <section class="py-12">
+            <div class="container px-4 lg:px-20">
+                <div class="title w-full flex flex-col items-center justify-center">
+                    <div class="flex space-x-6 text-4xl">
+                        <div class="flex items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                        <h4 class="text-4xl font-bold uppercase">
+                            <span>About</span>
+                            <span class="text-secondary">us</span>
+                        </h4>
+                        <div class="flex flex-row-reverse items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex items-center flex-wrap py-20 mt-10">
+                    <div class="w-full lg:w-1/2 p-10">
+                        <img src="img/about-image.png" />
+                    </div>
+
+                    <div class="w-full lg:w-1/2 p-6 px-10 space-y-2">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aliquam temporibus incidunt quas sint soluta commodi, in quo ullam architecto sapiente odio totam fugiat? Consectetur ad alias corrupti esse similique!</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptas beatae sint nobis officia tempore assumenda quisquam consequatur cum rem dolor delectus, adipisci possimus ratione, quae aliquam, ipsum velit est?</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi corrupti amet ratione fuga aliquam nemo eius sit error aperiam nulla, impedit nobis atque debitis perferendis aspernatur veniam reiciendis labore.</p>
+
+                        <div class="flex justify-between">
+                            <a href="" class="w-2/5 hover:bg-opacity-80 border border-primary py-2 mt-4 px-4 bg-primary rounded shadow-md text-white text-center">Join us Today</a>
+                            <a href="" class=" hover:bg-opacity-80 hover:bg-primary hover:text-white  py-2 mt-4 px-4 text-primary rounded shadow-md  text-center">Read More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="container px-4 lg:px-20">
+                <div class="title w-full flex flex-col items-center justify-center">
+                    <div class="flex space-x-6 text-4xl">
+                        <div class="flex items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                        <h4 class="text-4xl font-bold uppercase">
+                            <span>Why Join</span>
+                            <span class="text-secondary">KPA?</span>
+                        </h4>
+                        <div class="flex flex-row-reverse items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper mt-10">
+                    <div class="flex flex-wrap w-full items-center py-20">
+                        <div class="w-full lg:w-1/2 ">
+                            <img src="img/conference.png" class="w-80 h-80 " />
+                        </div>
+                        <div class="w-full lg:w-1/2 space-y-4 leading-loose">
+                            <h4 class="text-2xl font-bold text-primary ">Conferences & webiners</h4>
+                            <p class="text-sm mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. In ratione ea, asperiores pariatur minima maxime et! Ratione aliquid, ullam natus vero id expedita ipsam dolorum vel perferendis, inventore pariatur repellat! Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Amet enim porro minima ullam dolorem consectetur veniam iure nostrum quaerat laudantium totam aliquam laboriosam nesciunt, sunt commodi. Voluptatem tempore odit facere!
+                            </p>
+                            <div class="h-5 w-full spacer"> </div>
+                            <a href="" class=" my-4 hover:bg-opacity-80 bg-primary text-white  py-2 mt-4 px-4  rounded shadow-md  text-center">Learn More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-row-reverse flex-wrap w-full items-center py-20">
+                        <div class="w-full lg:w-1/2 ">
+                            <img src="img/conference.png" class="w-80 h-80 mx-auto" />
+                        </div>
+                        <div class="w-full lg:w-1/2 space-y-4 leading-loose">
+                            <h4 class="text-2xl font-bold text-primary ">Doctors welfare</h4>
+                            <p class="text-sm mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. In ratione ea, asperiores pariatur minima maxime et! Ratione aliquid, ullam natus vero id expedita ipsam dolorum vel perferendis, inventore pariatur repellat! Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Amet enim porro minima ullam dolorem consectetur veniam iure nostrum quaerat laudantium totam aliquam laboriosam nesciunt, sunt commodi. Voluptatem tempore odit facere!
+                            </p>
+                            <div class="h-5 w-full spacer"> </div>
+                            <a href="" class=" my-4 hover:bg-opacity-80 bg-primary text-white  py-2 mt-4 px-4  rounded shadow-md  text-center">Learn More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-10">
+            <div class="container px-4 lg:px-20">
+                <div class="title w-full flex flex-col items-center justify-center">
+                    <div class="flex space-x-6 text-4xl">
+                        <div class="flex items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                        <h4 class="text-4xl font-bold uppercase">
+                            <span>Events &</span>
+                            <span class="text-secondary">Media</span>
+                        </h4>
+                        <div class="flex flex-row-reverse items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper mt-10 py-20">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-1/3 px-10">
+                            <div class="card">
+                                <img src="img/IMG_9642.jpg" class="rounded-3xl h-48 w-full object-cover" alt="">
+                                <h4 class="text-lg my-4 font-bold ">May 2021 conference</h4>
+
+                                <p class="text-sm text-gray-500 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil distinctio nisi ad voluptatibus esse dolorum...</p>
+                                <div class="w-full flex justify-end">
+                                    <a href="" class=" my-4 hover:bg-opacity-80 place-self-end text-sm    py-2 mt-4 px-4  rounded text-primary  text-center">Learn More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="w-full lg:w-1/3 px-10">
+                            <div class="card">
+                                <img src="img/IMG_9642.jpg" class="rounded-3xl h-48 w-full object-cover" alt="">
+                                <h4 class="text-lg my-4 font-bold ">May 2021 conference</h4>
+
+                                <p class="text-sm text-gray-500 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil distinctio nisi ad voluptatibus esse dolorum...</p>
+                                <div class="w-full flex justify-end">
+                                    <a href="" class=" my-4 hover:bg-opacity-80 place-self-end text-sm    py-2 mt-4 px-4  rounded text-primary  text-center">Learn More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-full lg:w-1/3 px-10">
+                            <div class="card">
+                                <img src="img/IMG_9642.jpg" class="rounded-3xl h-48 w-full object-cover" alt="">
+                                <h4 class="text-lg my-4 font-bold ">May 2021 conference</h4>
+
+                                <p class="text-sm text-gray-500 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil distinctio nisi ad voluptatibus esse dolorum...</p>
+                                <div class="w-full flex justify-end">
+                                    <a href="" class=" my-4 hover:bg-opacity-80 place-self-end text-sm    py-2 mt-4 px-4  rounded text-primary  text-center">Learn More <i class="fas fa-long-arrow-alt-right inline ml-3"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-10">
+            <div class="container px-4 lg:px-20">
+                <div class="title w-full flex flex-col items-center justify-center">
+                    <div class="flex space-x-6 text-4xl">
+                        <div class="flex items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                        <h4 class="text-4xl font-bold uppercase">
+                            <span>Events &</span>
+                            <span class="text-secondary">Media</span>
+                        </h4>
+                        <div class="flex flex-row-reverse items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper mt-10 py-20">
+                <div id="gallery-slider" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <li class="splide__slide">
+                                <a>
+                                    <img src="img/IMG_9766.jpg" class="rounded-xl">
+                                </a>
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+                            </li>
+                            <li class="splide__slide">
+                                <a>
+                                    <img src="img/IMG_9748.jpg" class="rounded-xl">
+                                </a>
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+
+                            </li>
+
+                            <li class="splide__slide">
+                                <a>
+                                    <img src="img/IMG_9748.jpg" class="rounded-xl">
+                                </a>
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+                            </li>
+
+
+                            <li class="splide__slide">
+                                <a>
+                                    <img src="img/IMG_9748.jpg" class="rounded-xl">
+                                </a>
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+                            </li>
+
+                            <li class="splide__slide">
+                                <a>
+                                    <iframe id="ytplayer" type="text/html" class=" h-64 w-full rounded-xl" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com" frameborder="0"></iframe>
+                                </a>
+
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+                            </li>
+                            <li class="splide__slide relative">
+
+                                <a>
+                                    <img src="img/IMG_9748.jpg" class="rounded-xl">
+                                </a>
+                                <h1 class="text-gray-500 my-4">May Conference</h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full flex justify-center items-center">
+                <a href="" class="w-1/3 hover:bg-opacity-80 border border-primary py-3 mt-4 px-4 bg-primary rounded shadow-md text-white text-center">see more Gallery</a>
+            </div>
+        </section>
+
+
+
+
+        <section class="py-20">
+            <div class="container px-4 lg:px-20">
+                <div class="title w-full flex flex-col items-center justify-center">
+                    <div class="flex space-x-6 text-4xl">
+                        <div class="flex items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                        <h4 class="text-4xl font-bold uppercase">
+                            <span>Contact</span>
+                            <span class="text-secondary">Us</span>
+                        </h4>
+                        <div class="flex flex-row-reverse items-center">
+                            <hr class="w-16 border-b-2 border-gray-200">
+                            <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper py-10 mt-20">
+                    <div class="w-full flex flex-wrap justify-between">
+                        <div class="w-full lg:w-2/5 p-6 relative">
+                            <img src="img/blob.png">
+                            <div class="absolute top-0 w-full h-full bg-transparent flex flex-col space-y-8 text-lg font-bold items-center justify-center">
+                                <div class="phone flex ">
+                                    <img src="img/phone.svg" alt="" srcset="" class="mr-5"> +254799012907
+                                </div>
+
+                                <div class="phone flex">
+                                    <img src="img/google.svg" alt="" srcset="" class="mr-5"> info@kpa.com
+                                </div>
+
+                                <ul class="flex list-reset justify-between w-1/3 pt-10 items-center">
+                                    <li>
+                                        <img src="img/akar-icons_facebook-fill.svg" alt="">
+                                    </li>
+
+                                    <li>
+                                        <img src="img/ant-design_twitter-circle-filled.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="img/akar-icons_facebook-fill.svg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 px-4">
+                            <form class="w-full space-y-10">
+
+                                <div class="froup">
+                                    <label>Your name</label>
+                                    <input type="text" class="w-full border-b my-2 border-gray-200 px-3 py-2 text-gray-500" placeholder="">
+                                </div>
+
+                                <div class="froup">
+                                    <label>Your email</label>
+                                    <input type="text" class="w-full border-b my-2 border-gray-200 px-3 py-2 text-gray-500" placeholder="">
+                                </div>
+
+                                <div class="froup">
+                                    <label>Your Message</label>
+                                    <textarea class="w-full border my-2 border-gray-200 px-3 py-2 text-gray-500" name="" id="" rows="5"></textarea>
+
+                                </div>
+
+                                <button href="" class=" my-4 hover:bg-opacity-80 bg-primary text-white  py-2 mt-4 px-4  rounded shadow-md  text-center">Send Message</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="bg-primary pt-10 pb-4">
+            <div class="container px-4 lg:px-20">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="">
+                    </div>
+                    <div class="">
+                        <ul class="list-reset flex space-x-4 text-gray-200">
+                            <li class="hover:text-secondary"><a href="">Home</a></li>
+                            <li class="hover:text-secondary"><a href="">About</a></li>
+                            <li class="hover:text-secondary"><a href="">Conferences</a></li>
+                            <li class="hover:text-secondary"><a href="">Gallery</a></li>
+                            <li class="hover:text-secondary"><a href="">Resources</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    copyright2020.kap Designed by <a href="" class="text-white font-bold">VELOCITY</a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                new Splide('#fullscreen-slider', {
+                    width: '100vw',
+                    height: '100vh',
+                    speed: '100'
+                }).mount();
+
+                new Splide('#gallery-slider', {
+                    rewind: true,
+                    perPage: 3,
+
+                    gap: "10rem",
+                    pagination: false,
+
+                }).mount();
+            });
+        </script>
+
+
+
+
+
+    </body>
+
+</body>
+
+</html>

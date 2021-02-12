@@ -12,8 +12,8 @@ module.exports = {
                 large: '2.5rem',
             },
             colors: {
-                primary: '#3693D0',
-                secondary: '#0A1F33',
+                primary: '#009B61',
+                secondary: '#FB1F1F',
             },
 
         },
